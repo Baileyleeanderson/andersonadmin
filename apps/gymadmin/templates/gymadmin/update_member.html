@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Anderson Admin</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'gymadmin/style.css' %}" media="screen" title="no title"  charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <script src="{% static 'gymadmin/jquery.js' %}"></script>
+  <style>
+    body {
+        position: relative; 
+    }
+  </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">Anderson Admin</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/userdata">Check In <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/createmember">Add Member <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/searchmember">Search Members <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/visits">Visits <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/sales">Sales/ Expenses <span class="sr-only"></span></a>
+            </li>
+          </ul>
+          <form action="/logout" class="form-inline my-2 my-sm-0">
+            <button class="btn btn-outline-danger my-2 my-sm-0 btn-md" type="submit">Log Out</button>
+          </form>
+        </div>
+      </nav>
+
+<div id="wrapper">
+  <div class="user_div">
+    <div id="user_name">
+      <h1 class="name">{{user.first_name}} &nbsp {{user.last_name}}</h1>
+      <h2 class="{{status_color}}">{{status}}</h2>
+    </div>
+    <div class="user_all_info">
+        <span class="user_info_text">Sign Up Date</span><h6 class="white">{{user.signup_date}} </h6>
+        <span class="user_info_text">Email</span><h6 class="white">{{user.email}} </h6>
+        <span class="user_info_text">Phone #</span><h6 class="white">{{user.phone_number}} </h6>
+        <span class="user_info_text">Address</span><h6 class="white">{{user.address}} </h6>
+        <span class="user_info_text">Membership Type</span><h6 class="white">{{user.membership_type}} </h6>
+        <span class="user_info_text">Kids Club Member</span><h6 class="white">{{user.kids_club_member}} </h6>
+        <span class="user_info_text">Birthday</span><h6 class="white">{{user.birthday |date:'M-d-Y'}} </h6>
+        <span class="user_info_text">Last Payment</span><h6 class="yellowdate">{{last_payment.payment_date |date:'M-d-Y'}} </h6>
+        <span class="user_info_text">Contract Expiration</span><h6 class="{{color}}">{{user.contract_expiration_date |date:'M-d-Y'}} </h6>
+        <span class="user_info_text">Member Card Number</span><h6 class="green">{{user.card_number}} </h6>
+        <form class="delete" action="/delete/{{user.id}}" class="form-inline my-2 my-sm-0">
+          <h3 class="red3">*ONCE DELETED MEMBER <br>CANNOT BE RECOVERED</h3>
+            <button class="btn btn-danger my-2 my-sm-0 btn-md" type="submit">DELETE MEMBER</button>
+        </form>    
+    </div>  
+
+    <div class="membersgray">
+        <h4>UPDATE MEMBER</h4>
+        {% if messages %}
+            {% for message in messages %}
+            <h5 class="messages">{{ message }}</h5>
+            {% endfor %}
+        {% endif %} 
+        <form class="addmember" action="/update_member_account/{{user.id}}" method="post" class="form-inline my-2 my-sm-0">
+          {% csrf_token %}
+          <label class="labels">First Name<input name="firstname" type="text" class="form-control" placeholder="First Name" value="{{user.first_name}}"></label>
+          <label class="labels">Last Name<input name="lastname" type="text" class="form-control" placeholder="Last Name" value="{{user.last_name}}"></label>
+          <label class="labels">Email<input name="email" type="text" class="form-control" placeholder="Email" value="{{user.email}}"></label>
+          <label class="labels">Phone #<input name="phone" type="text" class="form-control" placeholder="Phone #" value="{{user.phone_number}}"></label>
+          <label class="labels">Address<input name="address" type="text" class="form-control" placeholder="Address" value="{{user.address}}"></label>
+          <label class="labels">Membership Type:
+              <select class="form-control" id="membership_type" name="membership_type">
+                <option>{{user.membership_type}}</option>
+                <option>Regular</option>
+                <option>VIP</option>
+                <option>Couples</option>
+                <option>Family Of 3</option>
+              </select></label>
+          <label class="labels">Kids Club Membership:
+              <select class="form-control" id="kids_club_member" name="kids_club_member">
+                <option>No</option>
+                <option>Yes</option>
+            </select></label>
+          <label class="labelsred">*EXPIRATION DATE<input name="expiration" type="date" class="form-control" value="{{user.contract_expiration_date | date:'Y-m-d'}}"></label>
+          <label class="labels">Gym Card Number<input name="card_number" type="number" class="form-control" placeholder="Member Card Number" aria-label="Card Number" value="{{user.card_number}}"></label><br>
+          <button id="update_button" class="btn btn-outline-success my-2 my-sm-0 btn-md" type="submit">UPDATE</button>
+        </form>
+    </div>
+    <div class="users_visits">
+      <table class="table table-dark">
+        <thead>
+          <tr>
+            <th class="name_visit" scope="col">Visits</th>
+            <th scope="col">Day</th>
+            <th scope="col">Time</th>
+            <th scope="col">Month</th>
+            <th scope="col">Date</th>
+            <th scope="col">Year</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for visit in users_visits %}
+            <tr>
+              <td>-</td>
+              <td>{{ visit.visit_date | date:'D'}}</td>
+              <td>{{ visit.visit_date | date:'H:i'}}</td>
+              <td>{{ visit.visit_date | date:'M'}}</td>
+              <td>{{ visit.visit_date | date:'d'}}</td>
+              <td>{{ visit.visit_date | date:'Y'}}</td>
+            </tr>
+          {% endfor %}
+          </tbody>
+          </table><br><br>
+      <table class="table table-dark">
+        <thead>
+          <tr>
+            <th class="name_visit" scope="col">Payments</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Date</th>
+            <th scope="col">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for payment in payments %}
+            <tr>
+              <td>-</td>
+              <td>P {{payment.amount}}</td>
+              <td>{{payment.payment_date | date:'D M, Y'}}</td>
+              <td>{{payment.desc}}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table><br><br>
+    </div>
+      <div id="payment_form">
+        <form class="addpayment" action="/add_payment/{{user.id}}" method="post" class="form-inline my-2 my-sm-0">
+          {% csrf_token %}
+          <h3 class="green">Add Payment</h3>
+          <label class="labels">Payment Date<input name="payment_date" type="date" class="form-control" value="{{date | date:'Y-m-d'}}"></label>
+          <label class="labels">Amount<span class="input-group-text" id="basic-addon1">P <input name="amount" type="number" class="form-control"></label></span>
+          <label class="labels">Description<input name="desc" type="text" class="form-control"></label>
+          <button id="addpay_button" class="btn btn-outline-success my-2 my-sm-0 btn-md" type="submit">Add Payment</button>
+        </form>
+      </div>      
+  </div>
+</div>
+</body>
+</html>
+

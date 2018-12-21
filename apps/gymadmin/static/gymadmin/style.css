@@ -1,0 +1,303 @@
+#contain {
+    text-align: center;
+}
+#signin_form {
+    width: 400px;
+    text-align: center;
+    display: inline-block;
+}
+.messages {
+    color: red;
+    margin-top: 15px;
+}
+.user_div {
+    text-align: center;
+    background-color: rgb(42, 42, 42);
+    padding-bottom: 50px;
+}
+.user_div2 {
+    text-align: center;
+    padding-bottom: 50px;
+    background-color: white;
+}
+.main2 {
+    text-align: center;
+    padding-bottom: 50px;
+    background-color: rgb(42, 42, 42);
+}
+.main {
+    text-align: center;
+    padding-bottom: 50px;
+}
+.members {
+    text-align: center;
+    display: inline-block;
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: -9px;
+    border: rgb(43, 229, 223) solid 4px;
+    background-color: rgb(255, 255, 255);
+    vertical-align: top;
+    margin-bottom:  20px; 
+}
+.membersgray {
+    text-align: center;
+    display: inline-block;
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: -9px;
+    border: rgb(43, 229, 223) solid 4px;
+    background-color: rgb(215, 215, 215);
+    vertical-align: top;
+    margin-bottom:  20px; 
+}
+.membershome {
+    text-align: center;
+    display: inline-block;
+    padding: 30px;
+    padding-left: 100px;
+    padding-right: 100px;
+    border-radius: 20px;
+}
+#addmember {
+    display: inline-block;
+    
+}
+#showmembers {
+    display: inline-block;
+}
+.addmember {
+    padding: 10px;
+    text-align: left;
+    width: 314px;
+}
+.user_info_text {
+    color: rgb(83, 159, 175);
+    font-size: 20px;
+    border-bottom: black solid 1px;
+}
+.user_all_info {
+    display: inline-block;
+    text-align: left;
+    vertical-align: top;
+    margin-right: 25px;
+    padding: 20px;
+    background-color: rgb(39, 39, 39);
+    border: solid black 2px;
+    margin-bottom:  20px;
+}
+.red {
+    color: red;
+    font-size: 31px;
+}
+.bigred {
+    color: red;
+    font-size: 31px;
+}
+.green {
+    color: rgb(23, 209, 23);
+    font-size: 25px;
+}
+.biggreen {
+    color: rgb(23, 209, 23);
+    font-size: 31px;
+}
+.yellowdate {
+    color: rgb(255, 249, 133);
+    font-size: 31px;  
+}
+.whitedate {
+    color: rgb(255, 255, 255);
+    font-size: 31px;  
+}
+.red2 {
+    color: rgb(255, 94, 94);
+    font-size: 20px;
+}
+.red3{
+    color: rgb(255, 0, 0);
+    font-size: 15px;
+}
+.name {
+    color: white;
+}
+#verify_div {
+    text-align: left;
+    margin-left: 66px;
+}
+.searchbar {
+    padding: 20px;
+    background-color: rgb(74, 74, 74);
+    border: solid black 2px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-top: 20px;
+}
+#search {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.delete {
+    padding: 32px;
+    background-color: rgb(33, 33, 33);
+    border: 2px red solid;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 30px;
+}
+#update_button {
+    font-size: 19px;
+    width: 296px;
+}
+.ps {
+    margin-bottom: -3px;
+}
+.logo {
+    width: 300px;
+}
+.logo2 {
+    width: 50px;
+}
+#cardnumber {
+    width: 300px;
+    margin-right: 12px;
+}
+.labels {
+    display: block;
+    margin-bottom: 4px;
+    color: rgb(85, 154, 116);
+    font-style: bold;
+    font-size: 17px;
+}
+.labelswhite {
+    display: block;
+    margin-bottom: 4px;
+    color: rgb(255, 255, 255);
+    font-style: bold;
+    font-size: 17px;
+}
+.labelsred {
+    display: block;
+    margin-bottom: 4px;
+    color: rgb(164, 39, 39);
+    font-style: bold;
+    font-size: 17px;
+}
+.labelsimportant {
+    display: block;
+    margin-bottom: 4px;
+    color: rgb(168, 63, 63);
+    font-style: bold;
+    font-size: 17px;
+}
+#email_find {
+    width: 275px;
+    margin-right: 15px;
+}
+.white {
+    color: white;
+}
+.blue {
+    color: cornflowerblue;
+}
+.users_visits {
+    margin-left: 25px;
+    width: 405px;
+    display: inline-block;
+    vertical-align: top;
+    border: black solid 2px;
+}
+.all_visits {
+    margin-left: 25px;
+    display: inline-block;
+    vertical-align: top;
+    width: 995px;
+    margin-top: 25px;
+}
+.all_sales {
+    margin-left: 10px;
+    display: inline-block;
+    vertical-align: top;
+    width: 400px;
+    margin-top: 25px;
+}
+.visitstext {
+    color: white;
+}
+.name_visit {
+    color: rgb(255, 149, 0);
+}
+.name_visit_green {
+    color: rgb(19, 190, 0);
+}
+.redtable {
+    color: rgb(255, 0, 0);
+}
+#user_name {
+    text-align: left;
+    padding: 12px;
+    margin-left: 20px;
+}
+#createmember {
+    text-align: center;
+}
+#create_button {
+    width: 292px;
+    height: 53px;
+}
+.visits_wrap {
+    background-color: rgb(42, 42, 42);
+    height: 1500px;
+    text-align: center;
+}
+#inner_wrap {
+    background-color: rgb(42, 42, 42);
+    height: 100%; 
+}
+#form_visits {
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    margin-top: 75px;
+}
+#visitform{
+    display: inline-block;
+}
+#saleswrap {
+    background-color: rgb(42, 42, 42);
+    height: 1500px;
+    text-align: center;
+}
+#payment_form {
+    width: 268px;
+    display: inline-block;
+    margin-left: 25px;
+    padding: 10px;
+    background-color: rgb(39, 39, 39);
+    border: solid black 2px;
+}
+.sales {
+    display: inline-block;
+    text-align: center;
+}
+.sales_inputs {
+    margin-top: 5px;
+    width: 400px;
+    height: 43px;
+
+}
+.sales_text {
+    color: rgb(156, 156, 156);
+}
+.formsales {
+    display: inline-block;
+    width: 300px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+#bigfont {
+    font-size: 25px;
+}

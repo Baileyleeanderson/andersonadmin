@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Anderson Admin</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'gymadmin/style.css' %}" media="screen" title="no title"  charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <script src="{% static 'gymadmin/jquery.js' %}"></script>
+  <style>
+    body {
+        position: relative; 
+    }
+  </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">Anderson Admin</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/userdata">Check In <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/createmember">Add Member <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/searchmember">Search Members <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/visits">Visits <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/sales">Sales/ Expenses <span class="sr-only"></span></a>
+            </li>
+          </ul>
+          <form action="/logout" class="form-inline my-2 my-sm-0">
+            <button class="btn btn-outline-danger my-2 my-sm-0 btn-md" type="submit">Log Out</button>
+          </form>
+        </div>
+      </nav>
+
+<div id="wrapper">
+  <div class="main">
+    <div id="verify_div">
+    
+    </div>
+    <div class="membershome">
+        <h1 class="">Check In Member</h1><br>
+        <div class="searchbar">
+            <form id="search" action="/verify" method="post" class="form-inline my-2 my-sm-0">
+              {% csrf_token %}
+              <input id="cardnumber" name="card_number" type="text" class="form-control" placeholder="CLICK HERE | SCAN CARD"><br>
+              <button class="btn btn-outline-danger my-2 my-sm-0 btn-md" type="submit">Verify Member</button>
+            </form>
+          </div>
+    </div>
+    {% if messages %}
+            {% for message in messages %}
+            <h5 class="messages">{{ message }}</h5>
+            {% endfor %}
+        {% endif %} 
+    <div class="image">
+      <img class="logo" src="{% static 'gymadmin/alogo.png' %}">
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
+
