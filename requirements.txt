@@ -4,7 +4,7 @@ asn1crypto==0.24.0
 bcrypt==3.1.4
 billiard==3.3.0.23
 braintree==3.49.0
-celery==3.1.26.post2
+celery==5.2.2
 certifi==2018.10.15
 cffi==1.11.5
 chardet==3.0.4
