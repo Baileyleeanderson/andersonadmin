@@ -5,7 +5,7 @@ bcrypt==3.1.4
 billiard==3.3.0.23
 braintree==3.49.0
 celery==3.1.26.post2
-certifi==2018.10.15
+certifi==2022.12.7
 cffi==1.11.5
 chardet==3.0.4
 cryptography==2.3.1
